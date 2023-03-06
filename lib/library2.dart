@@ -10,13 +10,15 @@ class KGVidioPlayerTwo extends StatefulWidget {
 class _KGVidioPlayerTwoState extends State<KGVidioPlayerTwo> {
   YoutubePlayerController? _controller;
   bool? showAppBar = true;
+  String videoUrl = 'https://www.youtube.com/watch?v=3LI4qNS0rUs';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    videoUrl = YoutubePlayerController.convertUrlToId(videoUrl)!;
     _controller = YoutubePlayerController.fromVideoId(
-      videoId: '3LI4qNS0rUs',
+      videoId: videoUrl,
       autoPlay: false,
       params: YoutubePlayerParams(
         showFullscreenButton: true,
